@@ -1,12 +1,12 @@
 <!DOCTYPE html><html class="dark" lang="en" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Dr. Maged Atef El-Essi | Diplomatic Portfolio</title>
+<title data-i18n="page-title">Dr. Maged Atef El-Essi | Diplomatic Portfolio</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -105,23 +105,53 @@
         .vertical-line { width: 1px; background: linear-gradient(to bottom, transparent, #e9c266, transparent); }
         .node-pulse { animation: pulse 3s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.5); opacity: 0.3; } 100% { transform: scale(1); opacity: 0.8; } }
-        .ar-font { font-family: "EB Garamond", serif; direction: rtl; }
+        .ar-font { font-family: "Amiri", serif; }
+
+        [dir="rtl"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+        [dir="rtl"] .font-display-lg,
+        [dir="rtl"] .font-headline-lg,
+        [dir="rtl"] .font-headline-md,
+        [dir="rtl"] .font-headline-lg-mobile {
+            font-family: 'Amiri', serif;
+        }
+
+        /* RTL Spacing Fixes */
+        [dir="rtl"] .md\:text-left { text-align: right !important; }
+        [dir="rtl"] .md\:text-right { text-align: left !important; }
+        [dir="rtl"] .text-right { text-align: left !important; }
+        [dir="rtl"] .text-left { text-align: right !important; }
+
+        [dir="rtl"] .md\:order-1 { order: 1 !important; }
+        [dir="rtl"] .md\:order-2 { order: 2 !important; }
+
+        [dir="rtl"] .border-r-2 { border-right-width: 0; border-left-width: 2px; }
+        [dir="rtl"] .border-l-2 { border-left-width: 0; border-right-width: 2px; }
+
+        [dir="rtl"] .md\:px-margin-desktop { padding-left: 64px; padding-right: 64px; }
+
+        /* Achievement line and dots for RTL */
+        [dir="rtl"] .vertical-line {
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body class="font-body-md text-on-surface selection:bg-secondary/30 selection:text-secondary">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-margin-desktop h-20 bg-surface/90 dark:bg-surface/90 backdrop-blur-xl border-b border-secondary/10">
-<div class="font-headline-md text-headline-md text-secondary tracking-tight">Dr. Maged Atef El-Essi</div>
+<div data-i18n="nav-name" class="font-headline-md text-headline-md text-secondary tracking-tight">Dr. Maged Atef El-Essi</div>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-secondary border-b-2 border-secondary pb-1 font-label-md text-label-md uppercase tracking-widest" href="#">Executive Bio</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#vision">Diplomatic Vision</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#achievements">Achievements</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#impact">Impact</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#contact">Contact</a>
+<a data-i18n="nav-bio" class="text-secondary border-b-2 border-secondary pb-1 font-label-md text-label-md uppercase tracking-widest" href="#">Executive Bio</a>
+<a data-i18n="nav-vision" class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#vision">Diplomatic Vision</a>
+<a data-i18n="nav-achievements" class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#achievements">Achievements</a>
+<a data-i18n="nav-impact" class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#impact">Impact</a>
+<a data-i18n="nav-contact" class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md uppercase tracking-widest" href="#contact">Contact</a>
 </div>
 <div class="flex items-center gap-4">
-<div class="flex items-center gap-2 group cursor-pointer">
-<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-secondary transition-colors">AR</span>
+<div id="lang-toggle" class="flex items-center gap-2 group cursor-pointer">
+<span id="lang-text" class="font-label-md text-label-md text-on-surface-variant group-hover:text-secondary transition-colors">AR</span>
 <span class="material-symbols-outlined text-secondary" data-icon="language">language</span>
 </div>
 </div>
@@ -131,13 +161,13 @@
 
 <div class="container mx-auto px-6 md:px-margin-desktop relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-24">
 <div class="flex-1 text-center md:text-left order-2 md:order-1">
-<span class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block reveal active">Distinguished Global Leadership</span>
-<h1 class="font-display-lg text-display-lg mb-4 leading-tight reveal active">Dr. Maged Atef El-Essi</h1>
-<h2 class="font-headline-md text-headline-md text-primary mb-8 max-w-2xl reveal font-medium active">Secretary General of the Arab Youth Union for Creativity and Innovation</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl reveal leading-relaxed active">Pioneering regional frameworks that bridge the gap between traditional governance and the dynamic potential of global innovation.</p>
+<span data-i18n="hero-span" class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block reveal active">Distinguished Global Leadership</span>
+<h1 data-i18n="hero-title" class="font-display-lg text-display-lg mb-4 leading-tight reveal active">Dr. Maged Atef El-Essi</h1>
+<h2 data-i18n="hero-subtitle" class="font-headline-md text-headline-md text-primary mb-8 max-w-2xl reveal font-medium active">Secretary General of the Arab Youth Union for Creativity and Innovation</h2>
+<p data-i18n="hero-desc" class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl reveal leading-relaxed active">Pioneering regional frameworks that bridge the gap between traditional governance and the dynamic potential of global innovation.</p>
 <div class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start reveal active">
-<button class="px-12 py-5 bg-secondary text-primary-container font-label-md text-label-md uppercase tracking-[0.2em] font-bold hover:bg-secondary-fixed transition-all shadow-xl shadow-secondary/5">Explore the Portfolio</button>
-<button class="px-12 py-5 border border-secondary/30 text-secondary font-label-md text-label-md uppercase tracking-[0.2em] hover:bg-secondary/5 transition-all">Diplomatic Vision</button>
+<button data-i18n="hero-btn-explore" class="px-12 py-5 bg-secondary text-primary-container font-label-md text-label-md uppercase tracking-[0.2em] font-bold hover:bg-secondary-fixed transition-all shadow-xl shadow-secondary/5">Explore the Portfolio</button>
+<button data-i18n="hero-btn-vision" class="px-12 py-5 border border-secondary/30 text-secondary font-label-md text-label-md uppercase tracking-[0.2em] hover:bg-secondary/5 transition-all">Diplomatic Vision</button>
 </div>
 </div>
 <div class="relative w-full max-w-md lg:max-w-lg order-1 md:order-2 reveal active">
@@ -146,7 +176,7 @@
 </div>
 <div class="relative z-10 p-2 bg-gradient-to-tr from-secondary/20 to-transparent">
 <div class="aspect-[3/4] w-full overflow-hidden border border-secondary/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
-<img alt="Official portrait of Dr. Maged Atef El-Essi in a high-end diplomatic office setting, reflecting prestige and authority." class="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN3SDCvYK-e4OIqKnMf3_VD19ZVj-bkPjmVwN1VFm_vN70h3iksUXINw8xCYDQbrN_D55d4ffuEE0qAY2eWP8SMZt58ypez-LTei22MuvOJJCOs9xjfiZPnbIzlUUzrFI4uU3MqyYM7PWlLwHqov1Mw6Iyvj2ThJRcSNdm1xphRGQ0u1FSNw6OUaMdzTSmHKF9GDpeCpSuOdlV38cCZhX74mXn1g2e0s552f_sMuN0cAhzQvVdF7t1H7-H0DP1uSuq_aU-6dmdPvBB0g">
+<img data-i18n="hero-img-alt" data-i18n-attr="alt" alt="Official portrait of Dr. Maged Atef El-Essi in a high-end diplomatic office setting, reflecting prestige and authority." class="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN3SDCvYK-e4OIqKnMf3_VD19ZVj-bkPjmVwN1VFm_vN70h3iksUXINw8xCYDQbrN_D55d4ffuEE0qAY2eWP8SMZt58ypez-LTei22MuvOJJCOs9xjfiZPnbIzlUUzrFI4uU3MqyYM7PWlLwHqov1Mw6Iyvj2ThJRcSNdm1xphRGQ0u1FSNw6OUaMdzTSmHKF9GDpeCpSuOdlV38cCZhX74mXn1g2e0s552f_sMuN0cAhzQvVdF7t1H7-H0DP1uSuq_aU-6dmdPvBB0g">
 </div>
 </div>
 <!-- Decorative Elements -->
@@ -163,27 +193,27 @@
 <div class="absolute -inset-4 border border-secondary/10 translate-x-4 translate-y-4"></div>
 <div class="bg-surface-container-low p-2 border border-secondary/10 relative overflow-hidden glass">
 <div class="aspect-[4/5] w-full relative overflow-hidden bg-surface">
-<img alt="Bilateral diplomatic meeting: Dr. Maged Atef El-Essi engaged in strategic discussion with an international representative, showcasing his active role in global diplomacy." class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdyvohmbgeDrkCWymvhNN7tc6f5sJ8ac7QsswukWn_sHgCGHODbT5IKjgoWMtxOyylMW4zZpotSDSZxzKHgnT-li7P8XXRN5KMvCN7pnQ_uCj_ayvlDYd4bUXSyLAOucTzacBsNxMx2sWwh5NAxpe6nS6VvJBAN-z2lAK3tiyXLIsMqj7wyvx3OWzE2GebHev2eRWU7aZWG8w2tT0qDYESbXaYCYqVtoY_7NIJiUck08yIipMXcMqWh9-8VGvu3ChL3LSqqsfNGOD7tA">
+<img data-i18n="bio-img-alt" data-i18n-attr="alt" alt="Bilateral diplomatic meeting: Dr. Maged Atef El-Essi engaged in strategic discussion with an international representative, showcasing his active role in global diplomacy." class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdyvohmbgeDrkCWymvhNN7tc6f5sJ8ac7QsswukWn_sHgCGHODbT5IKjgoWMtxOyylMW4zZpotSDSZxzKHgnT-li7P8XXRN5KMvCN7pnQ_uCj_ayvlDYd4bUXSyLAOucTzacBsNxMx2sWwh5NAxpe6nS6VvJBAN-z2lAK3tiyXLIsMqj7wyvx3OWzE2GebHev2eRWU7aZWG8w2tT0qDYESbXaYCYqVtoY_7NIJiUck08yIipMXcMqWh9-8VGvu3ChL3LSqqsfNGOD7tA">
 </div>
 </div>
 <div class="mt-12 text-right">
-<p class="font-headline-md text-headline-md text-secondary mb-4 italic leading-snug">"Leadership is the bridge that connects cultural heritage to global innovation."</p>
-<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">— Annual Executive Summary</span>
+<p data-i18n="bio-quote" class="font-headline-md text-headline-md text-secondary mb-4 italic leading-snug">"Leadership is the bridge that connects cultural heritage to global innovation."</p>
+<span data-i18n="bio-source" class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">— Annual Executive Summary</span>
 </div>
 </div>
 </div>
 <div class="lg:col-span-7 reveal active">
-<span class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block">Visionary Leadership</span>
-<h2 class="font-headline-lg text-headline-lg mb-10 border-b border-secondary/10 pb-8">Executive Profile</h2>
+<span data-i18n="bio-span" class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block">Visionary Leadership</span>
+<h2 data-i18n="bio-title" class="font-headline-lg text-headline-lg mb-10 border-b border-secondary/10 pb-8">Executive Profile</h2>
 <div class="space-y-8 text-on-surface-variant font-body-lg leading-relaxed max-w-2xl">
-<p class="">Dr. Maged Atef El-Essi stands as a distinguished architect of modern Arab diplomacy, specializing in the intersection of youth empowerment and global policy. His career is marked by a relentless pursuit of cross-cultural excellence and the elevation of young innovators on the world stage.</p>
-<p class="">As the Secretary General of the Arab Youth Union for Creativity and Innovation, he has pioneered regional frameworks that bridge the gap between traditional governance and the dynamic potential of the digital age. His work facilitates dialogue between international institutions and the next generation of Arab leaders.</p>
+<p data-i18n="bio-p1" class="">Dr. Maged Atef El-Essi stands as a distinguished architect of modern Arab diplomacy, specializing in the intersection of youth empowerment and global policy. His career is marked by a relentless pursuit of cross-cultural excellence and the elevation of young innovators on the world stage.</p>
+<p data-i18n="bio-p2" class="">As the Secretary General of the Arab Youth Union for Creativity and Innovation, he has pioneered regional frameworks that bridge the gap between traditional governance and the dynamic potential of the digital age. His work facilitates dialogue between international institutions and the next generation of Arab leaders.</p>
 <div class="pt-4 flex items-center gap-6">
 <div class="h-px flex-1 bg-secondary/20"></div>
 <span class="material-symbols-outlined text-secondary/40" data-icon="account_balance">account_balance</span>
 <div class="h-px flex-1 bg-secondary/20"></div>
 </div>
-<p class="italic text-on-surface/80">Through strategic partnerships and a deep commitment to sustainable development, Dr. El-Essi continues to define what it means to lead with both heritage and future-readiness in mind.</p>
+<p data-i18n="bio-p3" class="italic text-on-surface/80">Through strategic partnerships and a deep commitment to sustainable development, Dr. El-Essi continues to define what it means to lead with both heritage and future-readiness in mind.</p>
 </div>
 </div>
 </div>
@@ -191,9 +221,9 @@
 <!-- Impact Map Section -->
 <section class="py-32 relative geometric-bg overflow-hidden bg-[#0a0a0c]" id="impact">
 <div class="container mx-auto px-6 md:px-margin-desktop text-center mb-24 reveal active">
-<span class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block">Regional Influence</span>
-<h2 class="font-headline-lg text-headline-lg">Impact Across the Arab World</h2>
-<p class="max-w-2xl mx-auto mt-6 text-on-surface-variant font-body-lg">Architectural presence across 22 nations, fostering nodes of innovation and diplomatic excellence.</p>
+<span data-i18n="impact-span" class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block">Regional Influence</span>
+<h2 data-i18n="impact-title" class="font-headline-lg text-headline-lg">Impact Across the Arab World</h2>
+<p data-i18n="impact-desc" class="max-w-2xl mx-auto mt-6 text-on-surface-variant font-body-lg">Architectural presence across 22 nations, fostering nodes of innovation and diplomatic excellence.</p>
 </div>
 <div class="container mx-auto px-6 md:px-margin-desktop reveal active">
 <div class="relative bg-surface-container/30 border border-secondary/10 glass overflow-hidden min-h-[600px] flex items-center justify-center p-8">
@@ -201,7 +231,7 @@
 <div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/10 via-transparent to-transparent"></div>
 </div>
 <div class="relative w-full max-w-4xl">
-<img alt="Architectural map of the Arab world, highlighting diplomatic hubs and innovation centers with glowing golden nodes and sophisticated network lines." class="w-full h-auto opacity-70 filter brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChG_bohsR1D98U1xsRL5_R80WBbadCa6aO3G1oObiYxUF-5QXgYmFVyYnHeTfCJNw5-akfgdhAzTMb8jJBvXVY8Oy22ZUvjiPTZ6JamDjmgiW7G1QiHsRhqCCNO0mHzrZ5fpm1xD48q_ctuOzO0ium3pQI3SDZnQmurK-hkqICbY6bpVsUD6JGpveEb8wCjHRoWvqSx4Gxte_CZVlreZOpKdVLkHqAPXH-mgPjnOOGQnCVWXnEGKRPzcHc11eKduQi1ZJrQKTrHiflQw">
+<img data-i18n="impact-img-alt" data-i18n-attr="alt" alt="Architectural map of the Arab world, highlighting diplomatic hubs and innovation centers with glowing golden nodes and sophisticated network lines." class="w-full h-auto opacity-70 filter brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChG_bohsR1D98U1xsRL5_R80WBbadCa6aO3G1oObiYxUF-5QXgYmFVyYnHeTfCJNw5-akfgdhAzTMb8jJBvXVY8Oy22ZUvjiPTZ6JamDjmgiW7G1QiHsRhqCCNO0mHzrZ5fpm1xD48q_ctuOzO0ium3pQI3SDZnQmurK-hkqICbY6bpVsUD6JGpveEb8wCjHRoWvqSx4Gxte_CZVlreZOpKdVLkHqAPXH-mgPjnOOGQnCVWXnEGKRPzcHc11eKduQi1ZJrQKTrHiflQw">
 <!-- Glowing Nodes Overlay (Simulated) -->
 <div class="absolute top-1/2 left-[45%] w-3 h-3 bg-secondary rounded-full node-pulse shadow-[0_0_15px_#e9c266]"></div>
 <div class="absolute top-[40%] left-[60%] w-2 h-2 bg-secondary rounded-full node-pulse shadow-[0_0_10px_#e9c266]" style="animation-delay: 1s;"></div>
@@ -210,11 +240,11 @@
 <div class="absolute bottom-12 right-12 flex flex-col md:flex-row gap-8">
 <div class="text-right p-8 bg-surface-container-highest/60 backdrop-blur-xl border-r-2 border-secondary/50">
 <span class="block text-secondary font-display-lg text-5xl mb-2">22</span>
-<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Member Nations</span>
+<span data-i18n="impact-nations" class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Member Nations</span>
 </div>
 <div class="text-right p-8 bg-surface-container-highest/60 backdrop-blur-xl border-r-2 border-secondary/50">
 <span class="block text-secondary font-display-lg text-5xl mb-2">150+</span>
-<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Regional Hubs</span>
+<span data-i18n="impact-hubs" class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Regional Hubs</span>
 </div>
 </div>
 </div>
@@ -223,8 +253,8 @@
 <!-- Achievements Timeline -->
 <section class="py-32 bg-surface-container-lowest overflow-hidden" id="achievements">
 <div class="container mx-auto px-6 md:px-margin-desktop mb-24 reveal text-center active">
-<span class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block">Legacy &amp; Milestones</span>
-<h2 class="font-headline-lg text-headline-lg">Outstanding Achievements</h2>
+<span data-i18n="ach-span" class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-6 block">Legacy &amp; Milestones</span>
+<h2 data-i18n="ach-title" class="font-headline-lg text-headline-lg">Outstanding Achievements</h2>
 <div class="w-32 h-px bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-10"></div>
 </div>
 <div class="container mx-auto px-6 md:px-margin-desktop relative">
@@ -233,9 +263,9 @@
 <!-- Achievement 1 -->
 <div class="relative flex flex-col md:flex-row items-center gap-16 reveal active">
 <div class="md:w-1/2 md:text-right order-2 md:order-1">
-<span class="font-label-md text-secondary mb-4 block">2021 | Brussels &amp; Cairo</span>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Global Diplomatic Merit</h4>
-<p class="text-on-surface-variant text-lg leading-relaxed">Awarded for bridging strategic dialogue between Euro-Arab youth organizations, fostering a new era of cross-continental cooperation.</p>
+<span data-i18n="ach1-date" class="font-label-md text-secondary mb-4 block">2021 | Brussels &amp; Cairo</span>
+<h4 data-i18n="ach1-title" class="font-headline-md text-headline-md text-on-surface mb-4">Global Diplomatic Merit</h4>
+<p data-i18n="ach1-desc" class="text-on-surface-variant text-lg leading-relaxed">Awarded for bridging strategic dialogue between Euro-Arab youth organizations, fostering a new era of cross-continental cooperation.</p>
 </div>
 <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-surface border-4 border-secondary shadow-[0_0_30px_rgba(233,194,102,0.4)] flex items-center justify-center order-1 md:order-2">
 <span class="w-2 h-2 bg-secondary"></span>
@@ -249,17 +279,17 @@
 <span class="w-2 h-2 bg-secondary"></span>
 </div>
 <div class="md:w-1/2 md:text-left order-2 md:order-3">
-<span class="font-label-md text-secondary mb-4 block">2022 | Unified Accord</span>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Arab Innovation Accord</h4>
-<p class="text-on-surface-variant text-lg leading-relaxed">Spearheaded the first unified patent protection treaty for young creators, ratified by 14 nations to protect regional intellectual capital.</p>
+<span data-i18n="ach2-date" class="font-label-md text-secondary mb-4 block">2022 | Unified Accord</span>
+<h4 data-i18n="ach2-title" class="font-headline-md text-headline-md text-on-surface mb-4">Arab Innovation Accord</h4>
+<p data-i18n="ach2-desc" class="text-on-surface-variant text-lg leading-relaxed">Spearheaded the first unified patent protection treaty for young creators, ratified by 14 nations to protect regional intellectual capital.</p>
 </div>
 </div>
 <!-- Achievement 3 -->
 <div class="relative flex flex-col md:flex-row items-center gap-16 reveal active">
 <div class="md:w-1/2 md:text-right order-2 md:order-1">
-<span class="font-label-md text-secondary mb-4 block">2023 | Global Partnership</span>
-<h4 class="font-headline-md text-headline-md text-on-surface mb-4">UNESCO Strategic Partner</h4>
-<p class="text-on-surface-variant text-lg leading-relaxed">Established enduring collaborations for cultural heritage preservation through digital innovation, ensuring heritage remains relevant in the 21st century.</p>
+<span data-i18n="ach3-date" class="font-label-md text-secondary mb-4 block">2023 | Global Partnership</span>
+<h4 data-i18n="ach3-title" class="font-headline-md text-headline-md text-on-surface mb-4">UNESCO Strategic Partner</h4>
+<p data-i18n="ach3-desc" class="text-on-surface-variant text-lg leading-relaxed">Established enduring collaborations for cultural heritage preservation through digital innovation, ensuring heritage remains relevant in the 21st century.</p>
 </div>
 <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-surface border-4 border-secondary shadow-[0_0_30px_rgba(233,194,102,0.4)] flex items-center justify-center order-1 md:order-2">
 <span class="w-2 h-2 bg-secondary"></span>
@@ -269,8 +299,8 @@
 </div>
 <div class="flex justify-center mt-32 reveal active">
 <div class="px-12 py-10 border border-secondary/20 glass text-center max-w-2xl">
-<p class="font-body-lg italic text-secondary mb-4">Continuing the Mission</p>
-<p class="text-on-surface-variant text-lg leading-relaxed">Overseeing 40+ strategic partnerships across three continents, with 10+ major regional initiatives currently in progress.</p>
+<p data-i18n="ach-mission-span" class="font-body-lg italic text-secondary mb-4">Continuing the Mission</p>
+<p data-i18n="ach-mission-desc" class="text-on-surface-variant text-lg leading-relaxed">Overseeing 40+ strategic partnerships across three continents, with 10+ major regional initiatives currently in progress.</p>
 </div>
 </div>
 </div>
@@ -286,8 +316,8 @@
 <span class="material-symbols-outlined text-secondary text-5xl -rotate-45" data-icon="format_quote">format_quote</span>
 </div>
 <blockquote class="pt-8">
-<p class="font-display-lg text-4xl md:text-6xl lg:text-7xl text-on-surface leading-[1.1] mb-12 italic font-light">"Innovation is the universal language of the future; diplomacy is the bridge that ensures everyone has a voice in that conversation."</p>
-<cite class="font-label-md text-label-md uppercase tracking-[0.6em] text-secondary not-italic block mt-12 border-t border-secondary/10 pt-10">— Dr. Maged Atef El-Essi</cite>
+<p data-i18n="vision-quote" class="font-display-lg text-4xl md:text-6xl lg:text-7xl text-on-surface leading-[1.1] mb-12 italic font-light">"Innovation is the universal language of the future; diplomacy is the bridge that ensures everyone has a voice in that conversation."</p>
+<cite data-i18n="vision-author" class="font-label-md text-label-md uppercase tracking-[0.6em] text-secondary not-italic block mt-12 border-t border-secondary/10 pt-10">— Dr. Maged Atef El-Essi</cite>
 </blockquote>
 </div>
 </div>
@@ -298,15 +328,15 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
 <div class="text-center reveal active">
 <div class="font-display-lg text-secondary text-7xl mb-4">45+</div>
-<div class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Countries Reached</div>
+<div data-i18n="stats-countries" class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Countries Reached</div>
 </div>
 <div class="text-center reveal active" style="transition-delay: 200ms;">
 <div class="font-display-lg text-secondary text-7xl mb-4">2M+</div>
-<div class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Youth Impacted</div>
+<div data-i18n="stats-youth" class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Youth Impacted</div>
 </div>
 <div class="text-center reveal active" style="transition-delay: 400ms;">
 <div class="font-display-lg text-secondary text-7xl mb-4">120</div>
-<div class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Global Partnerships</div>
+<div data-i18n="stats-partners" class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Global Partnerships</div>
 </div>
 </div>
 </div>
@@ -316,8 +346,8 @@
 <div class="container mx-auto px-6 md:px-margin-desktop">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8 reveal active">
 <div>
-<span class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-4 block">Institutional Engagement</span>
-<h2 class="font-headline-lg text-headline-lg">Conferences &amp; Ceremonies</h2>
+<span data-i18n="gallery-span" class="font-label-md text-label-md uppercase tracking-[0.4em] text-secondary mb-4 block">Institutional Engagement</span>
+<h2 data-i18n="gallery-title" class="font-headline-lg text-headline-lg">Conferences &amp; Ceremonies</h2>
 </div>
 <div class="flex gap-3">
 <button class="w-14 h-14 border border-secondary/20 flex items-center justify-center hover:bg-secondary/10 transition-colors">
@@ -330,21 +360,21 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal active">
 <div class="aspect-[4/3] bg-surface-container overflow-hidden group border border-secondary/5 glass relative">
-<img alt="Cinematic shot of Dr. El-Essi delivering a keynote address at a high-level diplomatic summit, surrounded by international flags and dignitaries." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmbiST7mFrIV7QSX--JtjDtmrzIt_cottgj7X9yzeH7_zRYYv3Dmf7Ux_YnOLAqFDC89xai2WyzHE8T6JjgnSh5L67cF0O2yG58fZ-rE4vfrQJoFEtCAhLoi4JtTHFKjwPBHep_e_Su9vMC9n7_Kvz-F8wZ8Zsbe8xWULc1M-bN7OKCrxMwKpX5iUIrDeS3OzYClusxh3T8RtragGumPkKs7R0coIMMFesaZB__MNRP_rEy1dLOT8ShC7G--SQBqI5YowMDx8IJsbAqA">
+<img data-i18n="gallery-img1-alt" data-i18n-attr="alt" alt="Cinematic shot of Dr. El-Essi delivering a keynote address at a high-level diplomatic summit, surrounded by international flags and dignitaries." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmbiST7mFrIV7QSX--JtjDtmrzIt_cottgj7X9yzeH7_zRYYv3Dmf7Ux_YnOLAqFDC89xai2WyzHE8T6JjgnSh5L67cF0O2yG58fZ-rE4vfrQJoFEtCAhLoi4JtTHFKjwPBHep_e_Su9vMC9n7_Kvz-F8wZ8Zsbe8xWULc1M-bN7OKCrxMwKpX5iUIrDeS3OzYClusxh3T8RtragGumPkKs7R0coIMMFesaZB__MNRP_rEy1dLOT8ShC7G--SQBqI5YowMDx8IJsbAqA">
 <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-<p class="font-label-md text-secondary uppercase tracking-widest">Global Keynote</p>
+<p data-i18n="gallery-img1-caption" class="font-label-md text-secondary uppercase tracking-widest">Global Keynote</p>
 </div>
 </div>
 <div class="aspect-[4/3] bg-surface-container overflow-hidden group border border-secondary/5 glass relative">
-<img alt="Bilateral meeting with an international delegation in a luxury diplomatic lounge, discussing strategic regional cooperation." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcNROaS-nNf_wRe4b6gp8j5CAX9xyBqRuWPFPyPyD7rBfduLWnYKaVzIqz50ob-zvSBg4Xevuv00G3dv9T1Ftj5hjGs7-5V68rjN7D0kxQ1OBO5U4xA8xTaciYRVpgeTmXyF8L7jzToI8nfciDlzMSO123pN5uTT-9g3cPcaf_1DeeiJx5TjO4-PX_W4FyvywMxBCcaAhV5dTs4_AvOZ3P_c2pdLMkr1e_ErigilXhO9v0pOnGOzj8eNhKbZ6ySJqhTMnYVumXYmX28g">
+<img data-i18n="gallery-img2-alt" data-i18n-attr="alt" alt="Bilateral meeting with an international delegation in a luxury diplomatic lounge, discussing strategic regional cooperation." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcNROaS-nNf_wRe4b6gp8j5CAX9xyBqRuWPFPyPyD7rBfduLWnYKaVzIqz50ob-zvSBg4Xevuv00G3dv9T1Ftj5hjGs7-5V68rjN7D0kxQ1OBO5U4xA8xTaciYRVpgeTmXyF8L7jzToI8nfciDlzMSO123pN5uTT-9g3cPcaf_1DeeiJx5TjO4-PX_W4FyvywMxBCcaAhV5dTs4_AvOZ3P_c2pdLMkr1e_ErigilXhO9v0pOnGOzj8eNhKbZ6ySJqhTMnYVumXYmX28g">
 <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-<p class="font-label-md text-secondary uppercase tracking-widest">Bilateral Cooperation</p>
+<p data-i18n="gallery-img2-caption" class="font-label-md text-secondary uppercase tracking-widest">Bilateral Cooperation</p>
 </div>
 </div>
 <div class="aspect-[4/3] bg-surface-container overflow-hidden group border border-secondary/5 glass relative">
-<img alt="A prestigious youth innovation awards ceremony, with Dr. El-Essi presenting honors to the next generation of Arab leaders." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUCaK7ExhbEexY5r6sihI98P5WfzLIuPZpaIn19v52Tz1OT_K9aYwk1SwrWsMoxxDDov2sHa_nKGLZjyEQUsfV6nek-ypOOxv0eSmVZcPjkwoQoNijADzQu_y-tBYKnHlnU6rz9hLw0yyFzl2wxfscwBtHcV7RjuClf-ZdEca8acfo7vNg10y9dIL2Lq_ijYmNpX4-ahWKXapFg_YtY3IT4Y5pQHTxBet6Iy-wAgK0SPAaFPwSDLFQ3LLfEtvYXTV6qsFizU3JQGfjw">
+<img data-i18n="gallery-img3-alt" data-i18n-attr="alt" alt="A prestigious youth innovation awards ceremony, with Dr. El-Essi presenting honors to the next generation of Arab leaders." class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUCaK7ExhbEexY5r6sihI98P5WfzLIuPZpaIn19v52Tz1OT_K9aYwk1SwrWsMoxxDDov2sHa_nKGLZjyEQUsfV6nek-ypOOxv0eSmVZcPjkwoQoNijADzQu_y-tBYKnHlnU6rz9hLw0yyFzl2wxfscwBtHcV7RjuClf-ZdEca8acfo7vNg10y9dIL2Lq_ijYmNpX4-ahWKXapFg_YtY3IT4Y5pQHTxBet6Iy-wAgK0SPAaFPwSDLFQ3LLfEtvYXTV6qsFizU3JQGfjw">
 <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-<p class="font-label-md text-secondary uppercase tracking-widest">Honoring Innovation</p>
+<p data-i18n="gallery-img3-caption" class="font-label-md text-secondary uppercase tracking-widest">Honoring Innovation</p>
 </div>
 </div>
 </div>
@@ -355,8 +385,8 @@
 <div class="container mx-auto px-6 md:px-margin-desktop">
 <div class="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
 <div class="max-w-xl">
-<div class="font-headline-md text-headline-md text-secondary mb-8">Dr. Maged Atef El-Essi</div>
-<p class="text-on-surface-variant font-body-lg mb-10 leading-relaxed">Advancing the frontiers of creativity and innovation across the Arab world through high-level diplomatic engagement and institutional leadership.</p>
+<div data-i18n="nav-name" class="font-headline-md text-headline-md text-secondary mb-8">Dr. Maged Atef El-Essi</div>
+<p data-i18n="footer-desc" class="text-on-surface-variant font-body-lg mb-10 leading-relaxed">Advancing the frontiers of creativity and innovation across the Arab world through high-level diplomatic engagement and institutional leadership.</p>
 <div class="flex gap-6">
 <a class="w-12 h-12 border border-secondary/20 flex items-center justify-center hover:border-secondary hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
 <a class="w-12 h-12 border border-secondary/20 flex items-center justify-center hover:border-secondary hover:text-secondary transition-all" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
@@ -365,75 +395,34 @@
 </div>
 <div class="grid grid-cols-2 gap-24">
 <div>
-<h5 class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-8">Navigation</h5>
+<h5 data-i18n="footer-nav-title" class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-8">Navigation</h5>
 <ul class="space-y-5 text-on-surface-variant font-body-md">
-<li class=""><a class="hover:text-secondary transition-colors" href="#">Executive Bio</a></li>
-<li class=""><a class="hover:text-secondary transition-colors" href="#vision">Diplomatic Vision</a></li>
-<li class=""><a class="hover:text-secondary transition-colors" href="#achievements">Achievements</a></li>
-<li class=""><a class="hover:text-secondary transition-colors" href="#impact">Impact</a></li>
+<li class=""><a data-i18n="nav-bio" class="hover:text-secondary transition-colors" href="#">Executive Bio</a></li>
+<li class=""><a data-i18n="nav-vision" class="hover:text-secondary transition-colors" href="#vision">Diplomatic Vision</a></li>
+<li class=""><a data-i18n="nav-achievements" class="hover:text-secondary transition-colors" href="#achievements">Achievements</a></li>
+<li class=""><a data-i18n="nav-impact" class="hover:text-secondary transition-colors" href="#impact">Impact</a></li>
 </ul>
 </div>
 <div>
-<h5 class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-8">Protocol</h5>
+<h5 data-i18n="footer-protocol-title" class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-8">Protocol</h5>
 <ul class="space-y-5 text-on-surface-variant font-body-md">
-<li class=""><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
-<li class=""><a class="hover:text-secondary transition-colors" href="#">Terms of Engagement</a></li>
-<li class=""><a class="hover:text-secondary transition-colors" href="#">Media Center</a></li>
+<li class=""><a data-i18n="footer-privacy" class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a data-i18n="footer-terms" class="hover:text-secondary transition-colors" href="#">Terms of Engagement</a></li>
+<li class=""><a data-i18n="footer-media" class="hover:text-secondary transition-colors" href="#">Media Center</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="flex flex-col md:flex-row justify-between items-center pt-16 border-t border-secondary/5">
-<p class="text-on-tertiary-container font-label-md text-label-md mb-6 md:mb-0 opacity-60">© 2024 Dr. Maged Atef El-Essi. All Rights Reserved. Diplomatic Protocol Enforced.</p>
+<p data-i18n="footer-copyright" class="text-on-tertiary-container font-label-md text-label-md mb-6 md:mb-0 opacity-60">© 2024 Dr. Maged Atef El-Essi. All Rights Reserved. Diplomatic Protocol Enforced.</p>
 <div class="flex items-center gap-3 text-secondary/80">
 <span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
-<span class="font-label-md text-label-md uppercase tracking-widest">Official Executive Channel</span>
+<span data-i18n="footer-official" class="font-label-md text-label-md uppercase tracking-widest">Official Executive Channel</span>
 </div>
 </div>
 </div>
 </footer>
-<script>
-    // Reveal on scroll logic with enhanced observers
-    const revealCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-                // Optional: stop observing once revealed for performance
-                // observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const revealObserver = new IntersectionObserver(revealCallback, {
-        threshold: 0.15
-    });
-
-    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
-    // Handle initial load
-    window.addEventListener("DOMContentLoaded", () => {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach((el, index) => {
-            // Check if already in view
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                setTimeout(() => el.classList.add("active"), index * 100);
-            }
-        });
-    });
-
-    // Subtle parallax effect for images on scroll
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        document.querySelectorAll('img').forEach(img => {
-            const parent = img.parentElement;
-            if (parent.classList.contains('aspect-[4/3]') || parent.classList.contains('aspect-[4/5]')) {
-                const speed = 0.05;
-                img.style.transform = `translateY(${(scrolled - parent.offsetTop) * speed}px)`;
-            }
-        });
-    });
-</script>
+<script src="js/i18n.js"></script>
 
 
 </body></html>
